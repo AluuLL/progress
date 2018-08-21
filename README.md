@@ -1,4 +1,2 @@
 # progress
-orion
-python progress
-tools
+python/perl/shell progre
