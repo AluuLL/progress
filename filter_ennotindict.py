@@ -5,12 +5,12 @@ import re
 import json
 ##使用方法：python filter_ennotindict.py infile outfile
 ##功能介绍：infile每行资源中的英文单词有不在pplm.dict中的就删除整行资源，输出到outfile中；其中过滤出来的不符合条件的放到outfile.filted_notindict文件中
-##需注意：inputfile：第一列是资源，第二列是权值；训练词典路径：/data/pengxy/env/pplm/pplm.dict；要是槽位分支切记要去词典路径下将软链改成*.class
+##需注意：inputfile：第一列是资源，第二列是权值；训练词典路径：/data/pengxy/env/pplm/pplm.dict_tofilter;即是带槽位的训练词典软链而成；
 
 def myfunc(infile,outfile):
 	out = open(outfile,'w')	#过滤后得到的符合条件的资源
 	out_filter = open(outfile+".filted_notindict","w")	#过滤掉的不符合条件的资源
-	with open("/data/pengxy/env/pplm/pplm.dict","r") as dictfile:
+	with open("/data/pengxy/env/pplm/pplm.dict_tofilter","r") as dictfile:
 		dict_list = []
 		for line in dictfile:
 			line = line.strip().decode('gbk')#完成全角/半角转换前需先进行编码转换
