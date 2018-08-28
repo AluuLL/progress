@@ -8,6 +8,7 @@ import re
 
 def myfunc(infile,outfile):
 	out = open(outfile,'w')
+	out1 = open(infile+"en.list",'w')
 	with open (infile,'r')as reader:
 		for line in reader:
 			line_list = line.strip().split('\t')
@@ -22,8 +23,10 @@ def myfunc(infile,outfile):
 				if not (en):
 					out.write('\t'.join(line_list)+"\n")
 				if en:
-					line_list[1]=str(10)
-					out.write('\t'.join(line_list)+"\n")
+					#line_list[1]=str(10)
+					out1.write('\t'.join(line_list)+"\n")
+	out.close()
+	out1.close()
 if __name__ =='__main__':
 	infile = sys.argv[1]
 	outfile = sys.argv[2]
