@@ -14,13 +14,14 @@ def myfunc(dictfile,infile,outfile):
 			dict_list.append(line)
 	dict_list = json.dumps(dict_list,encoding="utf8",ensure_ascii=False)
 	#print dict_list
-	with open(infile,'r') as input:
-		for line in input:
+	with open(infile,'r') as inputfile:
+		for line in inputfile:
 			line = line.strip()
 			en_list = re.findall(r"[a-zA-Z]+",line)
 			for word in en_list:
 				if word.lower() not in dict_list:
-					out.write(word.lower()+"\n")
+					outwrite(word.lower()+"\n")
+        out.close()
 
 if __name__=='__main__':
 	dictfile = sys.argv[1]
